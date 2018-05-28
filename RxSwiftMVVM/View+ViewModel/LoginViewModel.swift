@@ -1,42 +1,46 @@
 import Moya
 import RxCocoa
 import RxSwift
+import SwiftEventBus
 
 class LoginViewModel {
 
     let disposeBag = DisposeBag()
     let model: Auth
-    //公開操作
-    let loginButtonDidTap = PublishRelay<Void>()
-    let loginSuccess = PublishRelay<String>()
-
-    //公開データ
+    
+    // 公開データ
     let userId = BehaviorRelay<String?>(value: "")
     let password = BehaviorRelay<String?>(value: "")
 
     init(_ model: Auth) {
         self.model = model
         
-        model.userId.asDriver()
-            .drive(userId)
-            .disposed(by: disposeBag)
-
-        model.password.asDriver()
-            .drive(password)
-            .disposed(by: disposeBag)
+        // 記憶領域のデータで初期化
+        userId.accept(Repository.shared.get(.userIDKey))
+        userId.accept(Repository.shared.get(.passwordKey))
         
-        loginButtonDidTap
-            .subscribe(onNext: {[unowned self] _ in
-                model.login(name: self.userId.value!, pass: self.password.value!)
-            })
+        // イベントの登録
+        registUpdateUI(relay: model.isLogin, operation: doneLogin)
+    }
+    
+    /// BehaviorRelay<Bool>がTrueの時に実行される処理
+    func registUpdateUI(relay: BehaviorRelay<Bool>, operation: @escaping () -> Void) {
+        relay.filter {$0}
+            .observeOn(MainScheduler.instance)
+            .bind(onNext: { _ in operation() })
             .disposed(by: disposeBag)
-        
-        model.isLogin
-            .filter {$0}
-            .subscribe({[unowned self] _ in
-                self.loginSuccess.accept("Main")
-            })
+    }
+    
+    /// ログインボタン押下処理
+    public func loginButtonDidTap() {
+        model.loginSingle(name: self.userId.value!, pass: self.password.value!)
+            .observeOn(MainScheduler.instance)
+            .subscribe { _ in self.doneLogin(/** state */) }
             .disposed(by: disposeBag)
-
+    }
+    
+    /// ログイン完了後の処理
+    private func doneLogin(/** state: LoginState */) {
+        SwiftEventBus.post("EVENTBUS_KEY_SEGUE_MAIN")
     }
 }

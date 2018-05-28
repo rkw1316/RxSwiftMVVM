@@ -10,6 +10,7 @@ target 'RxSwiftMVVM' do
   pod "RxSwift"
   pod "Moya/RxSwift"
   pod "SwiftLint"
+  pod 'SwiftEventBus'
 
   # Pods for SwiftMVVM
   

@@ -5,5 +5,6 @@
 import Foundation
 
 struct Login: Codable {
-    let result, url: String
+    let result: String
+    let url: String
 }

@@ -163,11 +163,11 @@
 			isa = PBXGroup;
 			children = (
 				3E35A1BA20B98A8D00B9AD4F /* LoginViewModel.swift */,
+				3E35A1BF20B98A8D00B9AD4F /* LoginViewController.swift */,
+				3E35A1BE20B98A8D00B9AD4F /* MainViewModel.swift */,
 				3E35A1BB20B98A8D00B9AD4F /* MainViewController.swift */,
 				3E35A1BC20B98A8D00B9AD4F /* SplashViewController.swift */,
 				3E35A1BD20B98A8D00B9AD4F /* SplashViewModel.swift */,
-				3E35A1BE20B98A8D00B9AD4F /* MainViewModel.swift */,
-				3E35A1BF20B98A8D00B9AD4F /* LoginViewController.swift */,
 			);
 			path = "View+ViewModel";
 			sourceTree = "<group>";
@@ -222,6 +222,7 @@
 				3E35A18B20B989B000B9AD4F /* Resources */,
 				1C897BAE962E41E1A44A666A /* [CP] Embed Pods Frameworks */,
 				3E35A1D520B9987A00B9AD4F /* ShellScript */,
+				DFF5D7894AB71AF766826715 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -241,6 +242,7 @@
 				3E35A19E20B989B300B9AD4F /* Frameworks */,
 				3E35A19F20B989B300B9AD4F /* Resources */,
 				18491BA089B6800945D83319 /* [CP] Embed Pods Frameworks */,
+				873E8A2253B342C5302836DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,6 +326,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftEventBus/SwiftEventBus.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
@@ -334,6 +337,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEventBus.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
@@ -354,6 +358,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftEventBus/SwiftEventBus.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -362,6 +367,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEventBus.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -380,6 +386,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\n${PODS_ROOT}/SwiftLint/swiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		873E8A2253B342C5302836DC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftMVVM-RxSwiftMVVMTests/Pods-RxSwiftMVVM-RxSwiftMVVMTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFF5D7894AB71AF766826715 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftMVVM/Pods-RxSwiftMVVM-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		F6A49485F2AA7ED81D6A9AC7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
