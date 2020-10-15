@@ -2,7 +2,7 @@
 //  RxSwiftMVVMTests.swift
 //  RxSwiftMVVMTests
 //
-//  Created by 荒川大樹 on 2018/05/26.
+//  Created by rkw1316 on 2018/05/26.
 //  Copyright © 2018年 zio. All rights reserved.
 //
 
